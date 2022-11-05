@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Main Page</title>
+</head>
+
+<!-----------------------FOR FAVICON=----------------------------------->
+<link rel = "icon" href = "{% static 'images/ceg.jpeg' %}">
+<!-------------------------------------------------------------------------->
+
+
+
+<script src="https://kit.fontawesome.com/fbf340fc9e.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/ripplesmainpage.css' %}">
+<style>
+
+	header{
+		position: fixed;
+		width: 100%;
+
+		z-index: 99999999;
+	}
+	/*--------------------STYLING FOR SCROLL TO TOP -------------------------------*/
+	.scrollTop{
+		position: fixed;
+		bottom: 40px;
+		right: 40px;
+		height: 60px;
+		width: 60px;
+		background: #fff url("{% static 'images/up.png' %}");
+		border-radius: 50%;
+		background-size: 40px;
+		background-position: center;
+		cursor: pointer;
+		background-repeat: no-repeat;
+		z-index: 100000;
+		visibility: hidden;
+		opacity: 0;
+		
+	}
+
+	.scrollTop.active{
+		visibility: visible;
+		opacity: 0.5;
+		
+
+	}
+
+	/*---------------------------------------------------------------------*/
+
+
+	/*---------------STYLING FOR WATER STYLE TEXT--------------------*/
+	.container_for_text{
+		position: relative;
+		margin-top: 20px;
+		padding: 30px 5px 0px 5px;
+	}
+	.container_for_text h2{
+		position: absolute;
+		font-size: 8rem;
+		font-weight: 400;
+		font-family: sans-serif;
+	}
+
+	.container_for_text h2:nth-child(1)
+	{
+		color: transparent;
+		-webkit-text-stroke: 4px white;
+
+	}
+
+	.container_for_text h2:nth-child(2)
+	{
+		color: white;
+		animation: animate 4s ease-in-out infinite;
+	}
+	@keyframes animate{
+		0%, 100%{
+			/*clip-path: polygon(0% 56%, 16% 66%, 37% 71%, 45% 64%, 57% 57%, 70% 50%, 86% 43%, 99% 41%, 100% 99%, 0% 99%);*/
+			clip-path: polygon(0% 49%, 13% 59%, 28% 63%, 44% 57%, 55% 50%, 70% 46%, 82% 39%, 100% 51%, 100% 99%, 0% 100%);
+		}
+		50%{
+			clip-path: polygon(0 40%, 13% 53%, 28% 59%, 45% 56%, 60% 53%, 74% 60%, 90% 62%, 99% 57%, 100% 98%, 0% 99%);
+		}
+	}
+
+	.progress-bar{
+		width: 300px;
+		text-align: center;
+		margin-top: -40px;
+		border-radius: 30px;
+		padding: 5px;
+		height: 50px;
+		margin-left: 60px;
+		font-weight: 200;
+		font-size: 40px;
+		background: white;
+
+	}
+	/*-----------------------------------------------------------*/
+	.whole{
+		width: 100%;
+		height: auto;
+		display: inline-flex;
+
+
+	}
+	.left_container{
+		background: red;
+		margin:20px;
+		padding: 20px;
+		width: 1000px;
+		height: 400px;
+	}
+	a{
+		text-decoration: none;
+		color:white;
+	}
+	a:hover{
+		color: powderblue;
+	}
+	.right_container{
+		background: #00545d;
+		margin: 20px;
+		width: 400px;
+		padding: 20px;
+		height: 400px;
+	}	
+
+	.right_text{
+		padding: 10px;
+		font-family: sans-serif;
+		
+		cursor: pointer;
+		margin-left: 40px;
+		font-size: 20px;
+
+	}
+
+	.right_head{
+		font-size: 20px;
+		font-weight: 400;
+		color: white;
+	}
+		/*-------------------STYLING FOR IMAGE SLIDER-------------------*/
+		/* MAKING POSITION STATIC WILL HELP THE DROPDOWN TO NOT HIDE BEYOND IMAGE*/
+
+		.maindiv{
+			
+			height : 700px;
+			/*position: static;*/
+			
+			background-image: url("{% static 'images/group.jpg' %}");
+			background-size: 100% 100%;
+			box-shadow: 1px 2px 10px 10px white;
+			animation :slider 9s infinite linear;
+			
+
+		}
+
+		@keyframes slider{
+			0%{ 
+			background-image: url("{% static 'images/ceg.jpeg' %}"); 
+
+			}
+
+			35%{
+				background-image: url("{% static 'images/group.jpg' %}");
+			}
+
+			75%{  
+				background-image: url("{% static 'images/ev.jpg' %}");
+			}
+		
+
+		}
+		
+	 
+/*----------------------------FOOTER DESIGN---------------------------*/
+ footer{
+		width : 100%;
+		position: relative;
+		bottom: 0;
+		background: #00545d;
+		/*background-image: url("{% static 'images/building.jpg' %}");
+		background-position: center;
+		background-size: cover;
+		opacity: 0.2;*/
+		color: white;
+		padding: 80px 0px 30px;
+		margin-top: 100px;
+		border-top-left-radius: 125px;
+		font-size: 13px;
+		line-height: 20px;
+
+
+	}
+
+	footer .row{
+		width: 85%;
+		margin: auto;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: space-between;
+		
+	}
+
+	.col{
+		cursor: pointer;
+	 	flex-basis: 25%;
+	 	padding: 10px;
+
+	}
+
+	.col:nth-child(2), .col:nth-child(3){
+		flex-basis: 15%;
+	}
+
+	.col h3{
+		width: fit-content;
+		margin-bottom: 40px;
+		position: relative;
+	}
+	.email-id{
+		width: fit-content;
+		border-bottom: 1px solid #ccc;
+		margin: 20px 0;
+
+	}
+
+	.col ul li{
+		list-style: none;
+		margin-bottom: 12px;
+		
+		text-align: left;
+	}
+
+	.col ul li a{
+		text-decoration: none;
+		color: white;
+	}
+
+	.col ul li a:hover{
+		color: powderblue;
+	}
+	form{
+		padding-bottom: 15px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid #ccc;
+		margin-bottom: 50px;
+	}
+	form .fa{
+		font-size: 18px;
+		margin-right: 10px;
+	}
+
+	form input{
+		width: 100%;
+		background: transparent;
+		color: #ccc;
+		border: 0;
+		outline: none;;
+	}
+
+	form button{
+		background: transparent;
+		cursor: pointer;
+		border: 0;
+		color: white;
+		outline: none;
+
+	}
+
+	form button .fa{
+		font-size: 16px;
+		color: #ccc;
+	}
+	.social_icons{
+		text-align: left;
+	}
+	.social_button{
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+
+		text-align: center;
+		/*line-height: 40px;*/
+		font-size: 30px;
+		color: white;
+		margin-right: 15px;
+		cursor: pointer;
+	}
+	
+	hr{
+		width: 90%;
+		border:0;
+		border-bottom: 1px solid #ccc;
+		margin: 20px auto;
+	}
+	.copyright{
+		text-align: center;
+	}
+
+	.underline{
+		width: 100%;
+		height: 5px;
+		background: #767676;
+		border-radius: 3px;
+		position: absolute;
+		top: 25px;
+		left: 0;
+		overflow: hidden;
+
+	}
+
+	.underline span{
+		width: 15px;
+		height: 100%;
+		border-radius: 3px;
+		background: white;
+		position: absolute;
+		top: 0;
+		left: 10px;
+		animation: moving 2s linear infinite;
+	}
+
+	@keyframes moving{
+		0%{
+			left: -20px;
+		}
+		100%{
+			left: 100%;
+		}
+	}
+/*----------------------------------------------------------------------------------------*/
+
+	.dept_info{
+		position: relative;
+		width: 100%;
+		margin: auto;
+		
+		height: 350px;
+		
+	}
+
+	.dept_info_img
+	{
+		background-size: cover;
+		background-position: center;
+		max-height: 350px;
+		float: right;
+		border-radius: 20%;
+
+	}
+	
+	.dept_content
+	{
+		border: 1px solid transparent;
+		height: 350px;
+		padding: 30px;
+		margin: 20px;
+
+	}
+
+	.dept_content h2{
+		font-weight: 300;
+		font-size: 40px;
+		color: whitesmoke;
+		text-decoration: underline whitesmoke;
+	}
+
+	.dept_content ul{
+		margin-left: 60px;
+		font-size: 30px;
+		color: whitesmoke;
+		
+	}
+
+
+	/*======= Scroll bar =======*/
+::-webkit-scrollbar{
+    background: #fff;
+    width: 11px;
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #00545d;
+    width: 100%;
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#000729;
+}
+
+/*======= Scroll indicator bar =======*/
+.scroll-indicator-container{
+    width: 100%;
+    height: 10px;
+    
+    z-index: 1000;
+}
+
+.scroll-indicator-bar{
+    background: powderblue;
+    width: 0%;
+		border-radius: 10px;
+    z-index: 1000;
+    height: 100%;
+    box-shadow: 0 5px 25px powderblue,
+                0 5px 50px powderblue ;
+}
+
+</style>
+
+<body>
+	<div class = "hero">
+		<!-------------------HEADER TAG USED WITH POSITION- FIXED WILL KEEP THE NAVBAR AT SAME PLACE EVEN WHILE SCROLLING----------->
+		<header>
+		<div class = "navbar">
+			<div class = "menu-bar">
+				<ul>
+					  <li><img src = "{% static 'images/logo.png' %}" class = "logo"></li>
+
+
+					  <li><a href = "#">Home</a></li>
+					  <li><a href = "/about">About Us</a></li>
+					  <li><a href = "/events">Events</a>
+					  	<!--div class = "submenu-1">
+					  		<ul>
+							  	<li><a href = "#">Tech</a></li>
+							  	<li><a href = "#">Non-Tech</a></li>
+					  		</ul>
+						</div-->
+					  </li>
+
+					  <li><a href = "#">Workshops</a></li>
+					  {% if user.is_authenticated %}
+					  <li><a href = "#">{{user.last_name}}</a><!--user's last name is considered for displaying-->
+					    <div class = "submenu-1" style = "z-index: 100;">
+					      <ul>
+					      	<li><a href = "/mylist">MY LIST</a></li>
+					        <li><a href = "/logout">LOGOUT</a></li>
+					      </ul>
+					    </div>
+					  </li>
+
+					  <!--li><a href = "">Logout</a></li-->
+
+					  {% else %}
+					  <li><a href = "/signup">Login|Register</a></li>
+					  {% endif %}
+					  
+				</ul>
+			</div>
+				
+		</div>
+		<div class="scroll-indicator-container">
+      <div class="scroll-indicator-bar"></div>
+    </div>
+	</header>
+	
+		<!---------------------------BUTTON TO SCROLL UP --------------------------->
+		<div class = "scrollTop" onclick="scrollToTop();"></div>
+		<!---------------------------------------------------------------------->
+
+		<div class ="maindiv">
+
+			<br><br><br>
+			<div class = "container_for_text">
+			<h2>Ripples is live now</h2>
+			<h2>Ripples is live now</h2>
+			</div>
+			<br><br><br><br><br><br>
+			<div class = "container_for_text" style="padding-top: 10px;">
+				<h2>ready to unravel</h2>
+				<h2>ready to unravel</h2>
+			</div>
+			<br><br><br><br><br><br><br>
+			<div class = "container_for_text" style="padding-top: 10px;">
+				<h2>>>> 6th November</h2>
+				<h2>>>> 6th November</h2>
+			</div>
+			<!---------------------FOR PROGRESS BAR--------------------->
+			<br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<!--div class="progress-bar" style="--width: 10px" data-label="Loading... 6th Sep 2022"></div-->
+			<div class = "progress-bar"><a href = "/about" style="text-decoration: none; color: #00545d;">Learn More-></a></div>
+
+			<!--------------------------->
+		</div>
+		
+	<div class = "whole">
+		<div class = "left_container">
+
+		</div>
+		<div class = "right_container">
+			<h1 class = "right_head"><b>TECHNICAL EVENTS</b></h1>
+			<p class = "right_text"><a href = "">Dynamic array</a></p>
+			<p class = "right_text"><a href = "">Dynamic array</a></p>
+			<p class = "right_text"><a href = "">Dynamic array</a></p>
+			<br><br>
+			<h1 class = "right_head"><b>NON-TECHNICAL EVENTS</b></h1>
+			<p class = "right_text"><a href = "">Dynamic array</a></p>
+			<p class = "right_text"><a href = "">Dynamic array</a></p>
+			<p class = "right_text"><a href = "">Dynamic array</a></p>
+		</div>
+	</div>
+
+	
+	<div class = "dept_info">
+		<img src = "{% static 'images/deee.jpg' %}" class = "dept_info_img">
+		<div class = "dept_content">
+			<h2>What we do ?</h2>
+			<ul>
+				<li>like to educate our students</li>
+				<li>guidance to placement</li>
+				<li>cherish with wondeful results</li>
+			</ul>
+		</div>
+	</div>
+
+	<footer>
+		<div class = "row">
+			<div class = "col">
+				<h3>Ripples
+					<div class = "underline">	
+						<span></span>
+					</div>
+				</h3>
+
+				<p style="text-align: left;">ripples website created by brown tags for culturals</p>
+			</div>
+			<div class = "col">
+				<h3>SEEE
+					<div class = "underline">	
+						<span></span>
+					</div>
+				</h3>
+				<p style="text-align: left;">in guindy</p>
+				<h4 style="text-align: left;">+91 -9999999999</h4>
+				<p class="email-id">ripples22@gmail.com</p>
+
+			</div>
+			<div class = "col">
+				<h3>LINKS
+					<div class = "underline">	
+						<span></span>
+					</div>
+				</h3>
+				<ul>
+					<li><a href = "#">Home</a></li>
+					<li><a href = "/about">About</a></li>
+					<li><a href = "/events">Events</a></li>
+					<li><a href = "#">Workshops</a></li>
+				</ul>
+			</div>
+
+
+			<div class = "col">
+				<h3>ContactUs
+					<div class = "underline">	
+						<span></span>
+					</div>
+				</h3>
+				<form>
+					<i class="fa-regular fa-envelope"style = "margin-right: 10px;"></i>
+					<input type = "email" placeholder="enter email">
+					<button type = "submit"><i class="fa-solid fa-arrow-right"></i></button>
+
+				</form>
+
+				<div class = "social_icons">
+					<a class = "social_button"><i class="fa-brands fa-facebook"></i></a>
+					<a class = "social_button"><i class="fa-brands fa-linkedin"></i></a>
+					<a class = "social_button"><i class="fa-brands fa-instagram"></i></a>
+
+				</div>
+
+			</div>
+		</div>
+		<hr>
+		<p class = "copyright">©2022 Copyrights ----All rights Reserved
+  		This Site is developed by Ripples Team for the Official Edition of Ripples</p>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+	var typed = new Typed(".auto_type",{
+		strings:["we are unravelling on 5th november"],
+		typeSpeed : 60,
+		backSpeed : 60,
+		loop : true,
+	})
+
+</script>
+<script>
+		window.addEventListener('scroll', function()
+		{
+			var scroll = document.querySelector('.scrollTop');
+			scroll.classList.toggle("active", window.scrollY > 1500);
+
+      const indicatorBar = document.querySelector(".scroll-indicator-bar");
+
+      const pageScroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollValue = (pageScroll / height) * 100;
+
+      indicatorBar.style.width = scrollValue + "%";
+    });
+		
+
+		function scrollToTop()
+		{
+			window.scrollTo({
+				top:0,
+				behavior:'smooth'
+			})
+		}
+</script>
+<script>
+    const progressBar = document.getElementsByClassName('progress-bar')[0]
+  setInterval(() => {
+    const computedStyle = getComputedStyle(progressBar)
+    const width = parseFloat(computedStyle.getPropertyValue('--width')) || 0
+    progressBar.style.setProperty('--width', width + .1)
+  }, 3)
+
+</script>
+	
+	</div>
+
+</body>
+</html>

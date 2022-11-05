@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RIPPLES</title>
+</head>
+<link rel="stylesheet" type="text/css" href="{% static 'css/ripplesmainpage.css' %}">
+
+<style>
+	/**{
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+		background: #0dbdb4 ;
+	}*/
+
+	header{
+		position: fixed;
+		width: 100%;
+		z-index: 99999999;
+	}
+
+	h1 
+	{
+		text-align: center;
+		color: #00545d;
+		font-family: sans-serif;
+		font-size: 40px;
+	}
+
+	.container{
+		display: inline-flex;
+		flex-wrap: wrap;
+		height : 100%;
+		overflow: hidden;
+		width: 100%;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+
+	.sub_container{
+		height: 350px;
+		width: 350px;
+		position: relative;
+		background: #009999;
+		
+		/*background-image: url('{% static "images/group.jpg" %}');
+		background-position: center;
+		background-size: cover;*/
+		
+	}
+
+	.container .sub_container .icon{
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: url('{% static "images/group.jpg" %}');
+		background-size: cover;
+		max-width: 100%;
+		background-position: center;
+		width: 100%;
+		height: 100%;
+		transition: 0.5s;
+		z-index: 1;
+	}
+
+	.container .sub_container:hover .icon 
+	{
+		top: 10px;
+		left: calc(50% - 90px);
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+
+	}
+
+	.container .sub_container .content{
+		position: absolute;
+		top: 200px;
+		height: calc(100% - 100px);
+		text-align: center;
+		font-size: 1.2rem;
+		color: white;
+		padding: 20px;
+		box-sizing: border-box;
+
+	}
+
+	.container .sub_container .content a{
+		text-decoration: none;
+		font-weight: 200;
+		color: transparent;
+		font-size: 2rem;
+	}
+
+	.container .sub_container .content a:hover{
+		color: #000729;
+	}
+	/*.container .sub_container:hover .text_hover{
+		height: 250px;
+		
+	}
+
+	.text_hover{
+		margin-top: 100px;
+		height: 0px;
+		width: 350px;
+		background: #000729;
+		opacity: 0.4;
+		
+		position: absolute;
+	}
+*/
+
+	/* FIRST INITIALLY WE DON'T NEED TEXT CLASS DIV ONLY WHEN WE HOVER WE NEED IT SO WE MAKE SURE THAT THE TEXT COLOR AND
+	BACKGROUND BE INVISIBLE*/
+	.text
+	{
+		color: transparent;
+		background: transparent;
+		display: none;
+		
+	}
+
+	/*.container .sub_container:hover .text_hover .text {
+		color: white;
+		font-family:sans-serif ;
+		font-size: 40px ;
+		cursor: pointer;
+		text-align: center;
+		margin-top: 50px;
+		font-weight: 200;
+		background: transparent;
+		filter: brightness(150%);
+	}
+	*/
+
+
+	.container .sub_container:hover .text{
+		color: white;
+		font-family:sans-serif ;
+		font-size: 45px ;
+		cursor: pointer;
+		text-align: center;
+		margin-top: 160px;
+		font-weight: 260;
+		background: transparent;
+		filter: brightness(150%);
+		display: block;
+	}
+
+
+	.container .sub_container:hover .text:hover {
+		transform: scale(1.2);		
+		text-decoration: none;
+		color: white;
+	}
+	.container .sub_container:hover  a{
+		text-decoration: none;
+		color: white;
+	}
+
+	
+
+/*--------------------------STYLING FOR TYPING TEXT----------------------------*/
+.container_for_text{
+		width : 100%;
+		margin-top: 20px;
+		color : white;
+		
+}
+
+.container_for_text h1{
+	font-size: 60px;
+	font-weight: 600;
+	
+	color: white;
+
+}
+
+
+span{
+	color: #00545d;
+}
+
+
+/*======= Scroll bar =======*/
+::-webkit-scrollbar{
+    background: #fff;
+    width: 11px;
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #00545d;
+    width: 100%;
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#000729;
+}
+
+</style>
+
+<body>
+
+	<div class = "hero">
+		<header>
+		<div class = "navbar">
+			<div class = "menu-bar">
+				<ul>
+					  <li><img src = '{% static "images/logo.png" %}' class = "logo"></li>
+					  <!--li><a href = ""><b>IMPULSE</b></a></li-->
+					  <li><a href = "/">Home</a></li>
+					  <li><a href = "/about">About Us</a></li>
+					  <li><a href = "#">Events</a>
+					  	<!--div class = "submenu-1">
+					  		<ul>
+							  	<li><a href = "#">Tech</a></li>
+							  	<li><a href = "#">Non-Tech</a></li>
+					  		</ul>
+						</div-->
+					  </li>
+
+					  <li><a href = "#">Workshops</a></li>
+					  {% if user.is_authenticated %}
+					  <li><a href = "#">{{user.last_name}}</a>
+					    <div class = "submenu-1">
+					      <ul>
+					      	<li><a href = "/mylist">MY LIST</a></li>
+					        <li ><a href = "/logout">LOGOUT</a></li>
+					        
+					      </ul>
+					    </div>
+					  </li>
+
+					  <!--li><a href = "">Logout</a></li-->
+
+					  {% else %}
+					  <li><a href = "/signup">Login|Register</a></li>
+					  {% endif %}
+					  
+				</ul>
+			</div>
+				
+		</div>
+	</header>
+
+		<!-- FOR ANIMATED TEXT EVENTS >
+		<div class="wrapper">
+		    <div class="static-txt">Technical Events - </div>
+		    <ul class="dynamic-txts">
+		      <li><span>Paper Presentation</span></li>
+		      <li><span>Circuit Craze</span></li>
+		      <li><span>Dynamic Array</span></li>
+		      <li><span>Freelancer</span></li>
+		    </ul>
+  	</div-->
+
+  	<div class = "container_for_text">
+  		<br><br><br><br><br><br>
+  	<!--h1 style = "text-align: left">TECHNICAL EVENTS -</h1-->
+		<h1>TECHNICAL EVENTS - <span class = "auto_type"></span></h1>
+		</div>
+
+
+
+
+		<div class = "container">
+			<div class = "sub_container">
+				<!--div class = "text_hover"></div>
+				<p class = "text"><a href = "/te1"><b>Paper Presentation</b></a></p-->	
+				<div class = "icon">
+				
+				</div>
+				<div class = "content">
+					<a href = "/te1"><b>Paper Presentation</b></a>
+					<p>this that pink venom description of the event in a glimpse</p>
+				</div>
+			</div>
+			
+
+
+			<div class = "sub_container">
+				<!--div class = "text_hover"></div>
+				<p class = "text"><a href = "/te1"><b>Paper Presentation</b></a></p-->	
+				<div class = "icon">
+				
+				</div>
+				<div class = "content">
+					<a href = "/te2"><b>Paper Presentation</b></a>
+					<p>this that pink venom description of the event in a glimpse</p>
+				</div>
+			</div>
+
+			<div class = "sub_container">
+				<!--div class = "text_hover"></div>
+				<p class = "text"><a href = "/te1"><b>Paper Presentation</b></a></p-->	
+				<div class = "icon">
+				
+				</div>
+				<div class = "content">
+					<a href = "/te3"><b>Paper Presentation</b></a>
+					<p>this that pink venom description of the event in a glimpse</p>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class = "container_for_text" style = "margin-top: 0px;">
+  	<!--h1 style = "text-align: left">TECHNICAL EVENTS -</h1-->
+		<h1>NON TECHNICAL EVENTS - <span class = "auto_type2"></span></h1>
+		</div>
+
+
+		<div class = "container">
+			<div class = "sub_container">
+				<!--div class = "text_hover"></div>
+				<p class = "text"><a href = "/te1"><b>Paper Presentation</b></a></p-->	
+				<div class = "icon">
+				
+				</div>
+				<div class = "content">
+					<a href = "/nte1"><b>Paper Presentation</b></a>
+					<p>this that pink venom description of the event in a glimpse</p>
+				</div>
+			</div>
+
+			<div class = "sub_container">
+				<!--div class = "text_hover"></div>
+				<p class = "text"><a href = "/te1"><b>Paper Presentation</b></a></p-->	
+				<div class = "icon">
+				
+				</div>
+				<div class = "content">
+					<a href = "/nte2"><b>Paper Presentation</b></a>
+					<p>this that pink venom description of the event in a glimpse</p>
+				</div>
+			</div>
+
+			<div class = "sub_container">
+				<!--div class = "text_hover"></div>
+				<p class = "text"><a href = "/te1"><b>Paper Presentation</b></a></p-->	
+				<div class = "icon">
+				
+				</div>
+				<div class = "content">
+					<a href = "/nte3"><b>Paper Presentation</b></a>
+					<p>this that pink venom description of the event in a glimpse</p>
+				</div>
+			</div>
+			
+		</div>
+	
+
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+	var typed = new Typed(".auto_type",{
+		strings:["Paper Presentation", "Circuit Craze", "Dynamic Array"],
+		typeSpeed : 60,
+		backSpeed : 60,
+		loop : true,
+	})
+
+</script>
+
+<script>
+	var typed = new Typed(".auto_type2",{
+		strings:["Mem Jam", "doodle", "Dynamic Array"],
+		typeSpeed : 60,
+		backSpeed : 60,
+		loop : true,
+	})
+
+</script>
+
+<footer>
+  		<p>©2022 Copyrights ----All rights Reserved<p>
+  		<p>This Site is developed by Ripples Team for the Official Edition of Ripples</p>
+	</footer>
+</div>
+</body>
+</html>

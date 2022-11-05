@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RIPPLES</title>
+</head>
+<style>
+	*{
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+		background: #0dbdb4 ;
+	}
+
+	.container{
+		display: flex;
+		flex-wrap: wrap;
+		height : 100%;
+		width: 100%;
+		margin-top: 100px;
+		
+		align-items: center ;
+		justify-content: space-evenly;
+	}
+
+	.sub_container{
+		height: 300px;
+		width: 300px;
+		
+		background: lightcyan;
+		background-image: url('images/group.jpg');
+		background-position: center;
+		background-size: cover;
+		position: relative;
+	}
+
+	.container .sub_container:hover .text_hover{
+		height: 200px;
+		
+	}
+
+	.text_hover{
+		margin-top: 100px;
+		height: 0px;
+		width: 300px;
+		background: #000729;
+		opacity: 0.4;
+		position: absolute;
+	}
+
+	/* FIRST INITIALLY WE DON'T NEED TEXT CLASS DIV ONLY WHEN WE HOVER WE NEED IT SO WE MAKE SURE THAT THE TEXT COLOR AND
+	BACKGROUND BE INVISIBLE*/
+	.text
+	{
+		color: transparent;
+		background: transparent;
+	}
+	.container .sub_container:hover .text_hover .text {
+		color: ghostwhite;
+		font-family: ;
+		font-size: 30px ;
+		font-weight: bold;
+		text-align: center;
+		margin-top: 50px;
+		background: transparent;
+	}
+
+	
+
+	
+</style>
+
+<body>
+	<h1>TECHINCAL EVENTS</h1>
+	<div class = "container">
+		<div class = " sub_container">
+			<div class = "text_hover">
+				<p class = "text">Paper Presentation</p>
+			</div>
+
+		</div>
+		<div class = " sub_container" style="background-image: url('images/ceg.jpeg')">
+			<div class = "text_hover">
+				<p class = "text">Circuit Craze</p>
+			</div>
+
+		</div>
+		<div class = " sub_container">
+			<div class = "text_hover">
+				<p class = "text">Dynamic Array</p>
+			</div>
+
+		</div>
+
+	</div>
+	<h1>NON-TECHINCAL EVENTS</h1>
+	<div class = "container">
+		<div class = " sub_container">
+			<div class = "text_hover">
+
+			</div>
+			
+
+		</div>
+		<div class = " sub_container" style="background-image: url('')">
+			<div class = "text_hover">
+				<p class = "text">sample text</p>
+			</div>
+
+		</div>
+		<div class = " sub_container">
+			<div class = "text_hover">
+
+			</div>
+
+		</div>
+		
+	</div>
+
+</body>
+</html>

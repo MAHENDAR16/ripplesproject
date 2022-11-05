@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/ripplesmainpage.css' %}">
+</head>
+<style>
+	.mylist{
+		
+		display: inline-flex;
+		justify-content: space-between;
+		width: 100%;
+		margin-top: 40px;
+		height: 700px;
+
+		padding: 30px;
+	}
+	.mysublist{
+		
+		flex-basis: 50%;
+		margin-left: 23%;
+		height: auto;
+		width: 50%;
+		position: absolute;
+		border: 1px solid white;
+		background: #075794;
+		padding: 15px;
+		
+	}
+
+	.mysublist p{
+		font-size: 30px;
+		margin-bottom: 20px;
+		font-weight: 200;
+		text-align: left;
+		color: white;
+	}
+
+	h2{
+		font-size: 50px;
+		font-weight: 400;
+		text-align: center;
+		color: white;
+	}
+
+	button{
+		height: 60px;
+		width: 300px;
+		background-color: #00545d;
+		border-radius: 20px;
+		color: white;
+		font-weight: 200;
+		margin-bottom: 30px;
+		font-size: 20px;
+		font-family: sans-serif;
+		border: 2px solid #00545d;
+
+	}
+
+	button:hover {
+		transform: scale(1.2);
+		color: powderblue;
+	}
+	
+	form{
+		margin-top: 30px;
+		
+		text-align: center;
+	}
+
+	
+</style>
+<body>
+	<div class = "hero">
+		<div class = "navbar">
+			<div class = "menu-bar">
+				<ul>
+					  <li><img src = "{% static 'images/logo.png' %}" class = "logo"></li>
+					  <!--li><a href = ""><b>IMPULSE</b></a></li-->
+					  <li><a href = "/">Home</a></li>
+					  <li><a href = "/about">About Us</a></li>
+					  <li><a href = "/events">Events</a>
+					  	<!--div class = "submenu-1">
+					  		<ul>
+							  	<li><a href = "#">Tech</a></li>
+							  	<li><a href = "#">Non-Tech</a></li>
+					  		</ul>
+						</div-->
+					  </li>
+
+					  <li><a href = "#">Workshops</a></li>
+					  {% if user.is_authenticated %}
+					  <li><a href = "#">{{user.last_name}}</a>
+					    <div class = "submenu-1" style = "z-index: 100;">
+					      <ul>
+					      	<li><a href = "/mylist">MY LIST</a></li>
+					        <li><a href = "/logout">LOGOUT</a></li>
+					      </ul>
+					    </div>
+					  </li>
+
+					  <!--li><a href = "">Logout</a></li-->
+
+					  {% else %}
+					  <li><a href = "/signup">Login|Register</a></li>
+					  {% endif %}
+					  
+				</ul>
+			</div>
+				
+		</div>
+		<form action = "/mylist/" method = "POST">
+			{% csrf_token %}
+			<button type= "submit" style = "text-align: center;" onclick="enable()">My Registrations List</button>
+			
+		</form>
+		<h2>Click the above button to view your registrations</h2>
+			
+			<div class = "mylist">
+
+				<div class = "mysublist">
+					<h2 style="margin-bottom: 20px;">Registered Events</h2>
+					{% for message in messages %}
+					<p>{{message}}</p>
+					{% endfor for %}
+				</div>
+				<!--div class = "mysublist">
+					<h2>Non-Technical Events</h2>
+					{% for message in messages %}
+					<p>{{message}}</p>
+					{% endfor for %}
+				</div>
+				<div class = "mysublist">
+				</div-->
+			</div>
+			
+		
+
+		<footer style = "margin-top: 25px;">
+	  		<p>©2022 Copyrights ----All rights Reserved<p>
+	  		<p>This Site is developed by Ripples Team for the Official Edition of Ripples</p>
+		</footer>
+	</div>
+
+
+	<script>
+		function enable()
+		{
+			let content = document.getElementByClassName('mylist');
+			content.style.visibility = "visible";
+		}
+	</script>
+</body>
+</html>

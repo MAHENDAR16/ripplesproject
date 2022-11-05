@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+  background-color: #0dbdb4;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #075794;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+  justify-content: space-evenly;
+  border: 2px solid white;
+  border-radius: 20px;
+  
+}
+
+.tablink:hover {
+  transform: scale(1.2);
+
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  width: 75%;
+  background-color: black;
+  padding: 60px 20px;
+  height: 300px;
+  border-radius: 20px;
+}
+
+.for_event
+{
+  margin: 200px;
+}
+#Home {background-color: #075794;}
+#News {background-color: #075794;}
+#Contact {background-color: #075794}
+
+</style>
+</head>
+<body>
+<div class = "for_event">
+  <button class="tablink" onclick="openPage('Home', this, '#075794')" id="defaultOpen">Rules</button>
+  <button class="tablink" onclick="openPage('News', this, '#075794')" >Rewards</button>
+  <button class="tablink" onclick="openPage('Contact', this, '#075794')">Contact</button>
+  
+
+  <div id="Home" class="tabcontent">
+    <h3>Rules</h3>
+    <li>participants should be a team of team of 2</li>
+    <li>avoid mobile phones</li>
+    <li>first round</li>
+    <li>secod round</li>
+  </div>
+
+  <div id="News" class="tabcontent">
+    <h3>Rewards</h3>
+    <li>participants should be a team of team of 2</li>
+    <li>avoid mobile phones</li>
+    <li>first round</li>
+    <li>secod round</li>
+  </div>
+
+  <div id="Contact" class="tabcontent">
+    <h3>Contact</h3>
+    <li>participants should be a team of team of 2</li>
+    <li>avoid mobile phones</li>
+    <li>first round</li>
+    <li>secod round</li>
+  </div>
+
+  
+</div>
+<script>
+function openPage(pageName,elmnt,color) 
+{
+  var i, tabcontent, tablinks;
+
+  tabcontent = document.getElementsByClassName("tabcontent");
+
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 

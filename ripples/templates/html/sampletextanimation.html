@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RIPPLES</title>
+</head>
+
+<style>
+	*{
+		margin : 0px;
+		padding: :0;
+		box-sizing: border-box;
+		font-family: sans-serif;
+	}
+
+	.container{
+		width : 100%;
+		height: 100vh;
+		color : white;
+		background: red;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	span{
+		color : yellow;
+
+	}
+	.container h1{
+		font-size: 40px;
+		font-size: 600;
+	}
+</style>
+<body>
+	<div class = "container">
+		<h1><span class = "auto_type"></span></h1>
+	</div>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+	var typed = new Typed(".auto_type",{
+		strings:["Paper Presentation", "Circuit Craze", "Dynamic Array"],
+		typeSpeed : 250,
+		backSpeed : 250,
+		loop : true,
+	})
+
+</script>
+</body>
+</html>

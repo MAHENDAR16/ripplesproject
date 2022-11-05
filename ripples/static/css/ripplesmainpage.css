@@ -1,0 +1,147 @@
+	*
+	{
+		margin : 0;
+		padding: 0;
+		font-family: sans-serif;
+		box-sizing: border-box;
+
+	}
+
+	.hero
+	{
+		width : 100%;
+		height: 100%;
+		background-color:#0dbdb4 ;
+		background-position: center;
+		background-size: cover;
+		position : relative;
+		overflow: auto;
+	}
+
+	.logo{
+		margin-top: -5px;
+		width : 100px;
+		cursor : pointer;
+	}
+
+	.navbar{
+
+		width : 100%;
+		height: 50%;
+		
+		margin : auto;
+		display: flex;
+		align-items: center;
+		
+	}
+
+	
+	
+	.menu-bar
+	{ 
+	  background: -webkit-linear-gradient(#00545d, #000729);
+	  	padding: 0;
+	    text-align : center;
+	    width:100%;
+	}
+
+	.menu-bar ul
+	{
+
+	  display: flex;
+	  list-style: none;
+	  color : white;
+	  justify-content: space-evenly;
+	}
+
+	.menu-bar ul li
+	{
+	  margin : 15px;
+	  padding : 15px;
+	  width : 160px;
+	  
+	  
+	}
+
+	.menu-bar ul li a
+	{
+	  text-decoration : none;
+	  color : white;
+	  
+	  font-size: 20px;
+	}
+
+	
+	.menu-bar ul li a:hover{
+		color: powderblue;
+	}
+	.active, .menu-bar ul li:hover
+	{
+	  background:-webkit-linear-gradient(#00545d, #000729); 
+	  
+	  border-bottom: 2px solid white;
+
+	}
+
+	.submenu-1
+	{
+	display : none;
+
+	}
+
+	
+	.menu-bar ul li:hover .submenu-1
+	{
+	  display : block;
+	  position : absolute;
+	  background: -webkit-linear-gradient(#00545d, #000729); 
+	  margin-left: -15px;
+	  z-index: 222;
+	  margin-top: 33px;
+	 
+	}
+
+	
+	.menu-bar ul li:hover .submenu-1 ul {
+	  margin: 0px;
+	  text-align: left;
+	  padding: 0px;
+	  width : 160px;
+	  display: block;
+	}
+
+
+	.menu-bar ul li:hover .submenu-1  ul li 
+	{
+		  width: 160px;
+		  margin-left: 0px;
+		  display: block;
+		  padding: auto;
+		  margin: auto;
+		  list-style: none;
+		  background : transparent;	  
+		  border-bottom: 2px solid white;
+	}
+
+	.menu-bar ul li:hover .submenu-1 ul li:last-child
+	{
+	  border-bottom : none;
+	}
+
+	
+	.menu-bar ul li:hover .submenu-1 ul li a:hover
+	{
+	  color : powderblue;
+	}
+
+	footer 
+		{
+		  width : 100%;
+		  text-align: center;
+		  padding: 4px;
+		  
+		  color : white;
+		  margin-top: 0px;
+		  background: -webkit-linear-gradient(#00545d, #000729);
+		}
+	

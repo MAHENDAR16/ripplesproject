@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RIPPLES</title>
+</head>
+<link rel="stylesheet" type="text/css" href = "{% static 'css/ripplesmainpage.css' %}">
+<style>
+
+	.for_img{
+		
+		margin-top: 50px;
+  	margin-bottom: 50px;
+  	margin-left: 320px;
+  	
+		height: 400px;
+		width: 600px;
+		background-image: url("{% static 'images/group.jpg' %}");
+		background-size: cover;
+		background-position: center;
+	}
+.tablink {
+  background-color: #075794;
+  color: white;
+  border: 2px solid white;
+  float: left;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 17px;
+  font-size: 17px;
+  width: 287px;
+  
+  
+  border-radius: 20px;
+  
+}
+
+.tablink:hover {
+  transform: scale(1.2);
+
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  width: 864px;
+  background-color: black;
+  padding: 80px 80px;
+  height: 300px;
+
+  border-radius: 20px;
+}
+
+.for_event
+{
+	margin-top: 0px;
+  margin-left: 200px;
+}
+
+.for_button
+{
+	text-align: center;
+	margin-top: 50px;
+
+}
+
+button{
+	height: 50px;
+	width: 200px;
+	
+	border-radius: 20px;
+	background-color: transparent;
+	border: 2px solid white;
+
+}
+
+.p_text{
+	font-family: sans-serif;
+	font-size: 20px;
+	color: white;
+
+}
+button:hover{
+	transform: scale(1.3);
+}
+#Home {background-color: #075794;}
+#News {background-color: #075794;}
+#Contact {background-color: #075794}
+
+.container_for_text{
+		width : 100%;
+		text-align: center;
+		margin-top: 30px;
+		color : white;
+		
+}
+
+.container_for_text h1{
+	font-size: 60px;
+	font-weight: 600;
+	color: white;
+
+}
+/* ------------------------STYLING FOR POP UP --------------------------*/
+.popup{
+		width : 500px;
+		background: #fff;
+		margin-top: -320px;
+		border-radius: 6px;
+		position: relative;
+		top: 0;
+		left: 50%;
+		
+		text-align: center;
+		padding: 0 30px 30px;
+		color: #333;
+		visibility: hidden;
+		top : 50%;
+		visibility: visible;
+		
+		transform: translate(-50%, -160%) scale(1.3);
+		transition: transform 0.4s, top 0.4s;
+	}
+
+	.popup img{
+		width : 100px;
+		margin-top: -50px;
+		border-radius: 50%;
+		box-shadow: 0 2px 5px rgba(0, 0, 0 ,0.2);
+		background-color: #075794;
+	}
+
+	.popup h2{
+		font-size: 38px;
+		font-weight: 500;
+		margin: 30px 0 10px;
+
+	}
+
+	.popup button{
+		width: 100%;
+		margin-top: 30px;
+		padding: 10px 0;
+		background: #075794;
+		color: #fff;
+		border: 0;
+		outline: none;
+		font-size: 18px;
+		border-radius: 4px;
+		cursor: pointer;
+
+		box-shadow: 0 2px 5px rgba(0, 0, 0 ,0.2);
+	}
+
+	.open_popup{
+		/*top : 50%;
+		visibility: visible;
+		transform: translate(-50%, -160%) scale(1.3);*/
+		visibility: hidden;
+
+	}
+
+	.blur_body{
+		filter: blur(20px);
+		pointer-events: none;
+		user-select: none;
+	}
+
+</style>
+<body>
+	<div class = "hero" id = "con" >
+		
+		<div class = "navbar">
+			<div class = "menu-bar">
+				<ul>
+					  <li><img src = "{% static 'images/logo.png' %}" class = "logo"></li>
+					  <!--li><a href = ""><b>IMPULSE</b></a></li-->
+					  <li><a href = "/">Home</a></li>
+					  <li><a href = "/about">About Us</a></li>
+					  <li><a href = "/events">Events</a>
+					  	
+						
+					  </li>
+
+					  <li><a href = "#">Workshops</a></li>
+					  {% if user.is_authenticated %}
+					  <li><a href = "#">{{user.last_name}}</a>
+					    <div class = "submenu-1">
+					      <ul>
+					      	<li><a href = "/mylist">MY LIST</a></li>
+					        <li ><a href = "/logout">LOGOUT</a></li>
+					        
+					      </ul>
+					    </div>
+					  </li>
+
+					  <!--li><a href = "">Logout</a></li-->
+
+					  {% else %}
+					  <li><a href = "/signup">Login|Register</a></li>
+					  {% endif %}
+				</ul>
+			</div>
+				
+		</div>
+		<div class = "container_for_text">
+  	<!--h1 style = "text-align: left">TECHNICAL EVENTS -</h1-->
+		<h1><span class = "auto_type"></span></h1>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+		<script>
+	var typed = new Typed(".auto_type",{
+		strings:["Paper Presentation...."],
+		typeSpeed : 60,
+		backSpeed : 60,
+		loop : true,
+	})
+
+	</script>
+		<div class = "for_img">
+		</div>
+		<div class = "for_event">
+		  <button class="tablink" onclick="openPage('Home', this, '#075794')" id="defaultOpen">Rules</button>
+		  <button class="tablink" onclick="openPage('News', this, '#075794')" >Rewards</button>
+		  <button class="tablink" onclick="openPage('Contact', this, '#075794')">Contact</button>
+		  
+
+		  <div id="Home" class="tabcontent">
+		    <h3>Rules</h3>
+		    <li>participants should be a team of team of 2</li>
+		    <li>avoid mobile phones</li>
+		    <li>first round</li>
+		    <li>secod round</li>
+		    <div class = "for_button">
+		    		<form method = "POST" action = "/te2/">
+						{% csrf_token %}
+		    		<button type = "submit"><p id = "demo" class = "p_text">Register</p></button> 
+		    	</form>
+		    	
+		    	<!-------------------------------------------FOR POPUP--------------------------------->
+		    	<!--button type = "submit" onclick = "openPopup()"><p id = "demo" class = "p_text">Register</p></button> 
+		    	<div class = "popup" id = "popup">
+						<img src="{% static 'images/tick.png' %}">
+						{%if user.is_authenticated %}
+							<h2>Thank You {{user.last_name}}!</h2>
+						{% else %}
+							<h2>Thank You!</h2>
+						{% endif %}
+						<p>You have successfully registered for the event.</p>
+						<button type = "button" style="transform: scale(1);" onclick="closePopup()">OK</button>
+					</div-->
+					<!--------------------------------------------------------------------------------------->
+
+		    </div>
+		  </div>
+
+		  <div id="News" class="tabcontent">
+		    <h3>Rewards</h3>
+		    <li>participants should be a team of team of 2</li>
+		    <li>avoid mobile phones</li>
+		    <li>first round</li>
+		    <li>secod round</li>
+		  </div>
+
+		  <div id="Contact" class="tabcontent">
+		    <h1 style = "text-align: center">Contact</h1>
+		  </div>
+		  <br><br><br><br>
+
+		  
+		</div>
+		<footer style = "margin-top : 50px">
+  		<p>©2022 Copyrights ----All rights Reserved<p>
+  		<p>This Site is developed by Ripples Team for the Official Edition of Ripples</p>
+	</footer>
+	</div>
+
+	<!-------------------------------------------FOR POPUP--------------------------------->
+	<!---------------POP UP SHOULD ALWAYS BE AT LAST SO THAT IT WOULD BE EASY TO BLUR THE BODY WHEN IT IS CALLED OTHERWISE THE WHOLE BODY INCLUDING POPUP WILL BE BLURRED-->
+					{% for message in messages %}
+		    	<div class = "popup" id = "popup">
+						<img src="{% static 'images/tick.png' %}">
+						{%if user.is_authenticated %}
+							<h2>Thank You {{user.last_name}}!</h2>
+						{% else %}
+							<h2>Thank You</h2>
+						{% endif %}
+						<p>{{message}}</p>
+						<button type = "button" style="transform: scale(1); " onclick="closePopup()">OK</button>
+					</div>
+					{% endfor for %}
+
+						
+						
+					<!--------------------------------------------------------------------------------------->
+
+
+
+<script>
+
+		function change(){
+			document.getElementById("demo").innerHTML = "Registered successfully";
+		}
+
+		function openPage(pageName,elmnt,color) 
+		{
+		  var i, tabcontent, tablinks;
+
+		  tabcontent = document.getElementsByClassName("tabcontent");
+
+		  for (i = 0; i < tabcontent.length; i++) {
+		    tabcontent[i].style.display = "none";
+		  }
+
+		  tablinks = document.getElementsByClassName("tablink");
+		  for (i = 0; i < tablinks.length; i++) {
+		    tablinks[i].style.backgroundColor = "";
+		  }
+
+		  document.getElementById(pageName).style.display = "block";
+		  elmnt.style.backgroundColor = color;
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+		
+
+
+		let popup = document.getElementById("popup");
+		let body = document.getElementById("con");
+		function openPopup(){
+			//popup.classList.add("open_popup");
+			document.getElementById("demo").innerHTML = "Registered successfully";
+			body.classList.add("blur_body");
+		}
+
+
+		function closePopup(){
+			popup.classList.add("open_popup");
+			body.classList.remove("blur_body");
+		}
+
+
+</script>
+	
+</body>
+</html>

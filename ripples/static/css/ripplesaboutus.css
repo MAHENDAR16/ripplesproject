@@ -1,0 +1,280 @@
+*
+{
+    margin : 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.wrapper{
+  margin-top: 5%;
+
+}
+
+.wrapper h1{
+  font-family: sans-serif;
+  font-size: 52px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.team{
+  margin-left: 0px;
+  display: inline-flex;
+  justify-content: center;
+  width: auto;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.team .team_member{
+  background: -webkit-linear-gradient(#00545d, #000729);
+  margin: 50px;
+  margin-bottom: 50px;
+  width: 390px;
+  height: 210px;
+  padding: 20px;
+  border-radius: 50%;
+  line-height: 20px;
+  color: #8e8b8b;  
+  position: relative;
+}
+
+.team .team_member h3{
+  color: white;
+  font-size: 26px;
+  margin-top: 110px;
+}
+
+.team .team_member p.role{
+  color: white;
+  margin: 12px 10px;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+.team .team_member .team_img{
+  position: absolute;
+  margin-top: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: 150px;
+  
+  
+}
+
+.team .team_member .team_img img{
+  height: 100px;
+  width: 100px;
+
+  border-radius: 50%;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+
+  
+
+  
+  .about 
+  {
+    padding : 10px;
+    font-family: sans-serif;
+    font-size: 25px;
+    word-spacing: 7px;
+  }
+  .group 
+  {
+    background-size: cover;
+    background-position: center;
+    width : 100%;
+
+  }
+
+  .container2
+  {
+   
+    margin-top: 100px;
+    margin-left : 100px;
+    margin-right: 100px;
+    background: -webkit-linear-gradient(#00545d, #000729);
+    color : white;
+    border-radius: 25px;
+    border-style: double;
+    margin-bottom: 100px;
+
+  }
+
+  .contact_h1
+  {
+    font-family: sans-serif;
+    color: #00545d;
+    text-align: center;
+  }
+  
+  
+
+  .hero
+  {
+    width : 100%;
+    height: 100%;
+    background-color:#0dbdb4 ;
+    background-position: center;
+    background-size: cover;
+    position : relative;
+    overflow: auto;
+  }
+
+  .logo{
+    margin-top: -5px;
+    width : 100px;
+    cursor : pointer;
+  }
+
+  .navbar{
+    width : 100%;
+    height : 15%;
+    margin : auto;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  
+  
+  .menu-bar
+  { 
+    background: -webkit-linear-gradient(#00545d, #000729);
+
+      text-align : center;
+      width:100%;
+  }
+
+  .menu-bar ul
+  {
+    display: flex;
+    list-style: none;
+    color : white;
+    justify-content: space-evenly;
+  }
+
+  .menu-bar ul li
+  {
+    margin : 15px;
+    padding : 15px;
+    width : 160px;
+    
+  }
+
+  .menu-bar ul li a
+  {
+    text-decoration : none;
+    color : white;
+    
+    font-size: 20px;
+  }
+
+  
+  .menu-bar ul li a:hover{
+    color: powderblue;
+  }
+  .active, .menu-bar ul li:hover
+  {
+    background:-webkit-linear-gradient(#00545d, #000729); 
+    
+    border-bottom: 2px solid white;
+
+  }
+
+  .submenu-1
+  {
+  display : none;
+  }
+
+  .menu-bar ul li:hover .submenu-1
+  {
+    display : block;
+    position : absolute;
+    background: -webkit-linear-gradient(#00545d, #000729); 
+    margin-left: -15px;
+    margin-top: 33px;
+   
+  }
+
+  .menu-bar ul li:hover .submenu-1 ul {
+    margin: 0px;
+
+    padding: 0px;
+    width : 160px;
+    display: block;
+  }
+
+
+  .menu-bar ul li:hover .submenu-1  ul li 
+  {
+      width: 160px;
+      display: block;
+      
+      list-style: none;
+      border-bottom: none;
+      background : transparent;
+      text-align : left;
+  }
+
+  .menu-bar ul li:hover .submenu-1 ul li:last-child
+  {
+    border-bottom : none;
+  }
+
+  
+  .menu-bar ul li:hover .submenu-1 ul li a:hover
+  {
+    color : powderblue;
+  }
+  footer 
+    {
+      width : 100%;
+      text-align: center;
+      padding: 4px;
+      
+      color : white;
+      margin-top: 100px;
+      background: -webkit-linear-gradient(#00545d, #000729);
+    }
+  
+  
+
+/*---------------------STYLING FOR MEDIA ICONS-----------------*/
+  .contactus
+  {
+    
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    margin-bottom: 20px;
+  }
+  .contact_h1
+  {
+    font-family: sans-serif;
+    /*color: #00545d;*/
+    
+    text-align: center;
+    margin-right: 20px;
+    border-right: 5px white;
+  }
+  .button{
+    margin : 1rem;
+    font-size: 60px;
+  }
+
+  .button:hover
+  {
+    transform: scale(1.5);
+  }
+/*----------------------------------------------*/
+
+
+  
